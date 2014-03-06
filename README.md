@@ -9,7 +9,7 @@ This tool compares the distribution of IPDs between NATIVE and WGA data for ever
 ##Running
 To run the code simply type:
 
-<code>sh Mastercode\_Bash\_Script.sh [wga.cmp.h5] [nat.cmp.h5] [sample id] [fasta file] [output directory] </code>
+<code>sh EMMCkmer.sh [wga.cmp.h5] [nat.cmp.h5] [sample id] [fasta file] [output directory] </code>
 
 ### INPUTS
 
