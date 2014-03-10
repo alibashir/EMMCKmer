@@ -16,10 +16,14 @@ data_formatting = function(pwd_csv_files,bacteria_name,nat_wga,pwd){
 
 	if (nat_wga == "nat"){
 		nat_reads = t[,1:2]
-	save(nat_reads,file = paste(bacteria_name,"_native_reads.RData",sep = ""))
+		if (save_intermediary_files){
+			save(nat_reads,file = paste(bacteria_name,"_native_reads.RData",sep = ""))
+		}
 	}
 	if (nat_wga == "wga"){
 		wga_reads = t[,1:2]
-	save(wga_reads,file = paste(bacteria_name,"_wga_reads.RData",sep = ""))
+		if (save_intermediary_files){
+			save(wga_reads,file = paste(bacteria_name,"_wga_reads.RData",sep = ""))
+		}
 	}
 }
