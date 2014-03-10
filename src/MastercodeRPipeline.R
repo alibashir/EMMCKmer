@@ -8,6 +8,7 @@ rm(list = ls())
 # kmer_length = 4:7
 # fasta = "/projects/KmerIPD/test/First_50K.fasta"
 # pwd = "/projects/KmerIPD/test/"
+# save_intermediary_files = TRUE
 ###########
 args = commandArgs(trailingOnly = T)
 pwd_bacteria_reads_nat = args[[1]]
@@ -17,6 +18,8 @@ kmer_length_start = as.numeric(args[[4]])
 kmer_length_end = as.numeric(args[[5]])
 fasta = args[[6]]
 pwd = args[[7]]
-
+if (length(args)==8){
+  save_intermediary_files=args[[8]]
+}
 source("src/modified_kmer_detection.R")
 modified_kmer_detection(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,bacteria_name,kmer_length_start,kmer_length_end,fasta,pwd)
