@@ -48,11 +48,11 @@ modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga
   #######
   pwd_csv_files = pwd_bacteria_reads_nat
   bacteria_name = bacteria_name
-  data_formatting(pwd_csv_files,bacteria_name,"nat",pwd)
+  data_formatting(pwd_csv_files,bacteria_name,"nat",pwd,save_intermediary_files)
 
   pwd_csv_files = pwd_bacteria_reads_wga
   bacteria_name = bacteria_name
-  data_formatting(pwd_csv_files,bacteria_name,"wga",pwd)
+  data_formatting(pwd_csv_files,bacteria_name,"wga",pwd,save_intermediary_files)
 
   #######
   # run only if kmers have not yet been computed for that specific genome
@@ -67,7 +67,7 @@ modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga
   pwd_bacteria_reads_nat = paste(pwd,"/",bacteria_name,"_native_reads.RData",sep = "")
   pwd_bacteria_reads_wga = paste(pwd,"/",bacteria_name,"_wga_reads.RData",sep = "")
 
-  unstacking(pwd,pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,fasta)
+  unstacking(pwd,pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,fasta,save_intermediary_files)
 
   #######
   # run only if medianing have not yet been computed for that specific bacteria
