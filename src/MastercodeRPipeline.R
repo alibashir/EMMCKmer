@@ -20,6 +20,8 @@ fasta = args[[6]]
 pwd = args[[7]]
 if (length(args)==8){
   save_intermediary_files=args[[8]]
+}else{
+save_intermediary_files=FALSE
 }
 source("src/modified_kmer_detection.R")
-modified_kmer_detection(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,bacteria_name,kmer_length_start,kmer_length_end,fasta,pwd)
+modified_kmer_detection(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,bacteria_name,kmer_length_start,kmer_length_end,fasta,pwd,save_intermediary_files)
