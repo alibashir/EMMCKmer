@@ -1,4 +1,4 @@
-modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,bacteria_name,kmer_length_start,kmer_length_end, fasta,pwd){
+modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga,bacteria_name,kmer_length_start,kmer_length_end,fasta,pwd,save_intermediary_files=FALSE){
 ########################
 # This function goes through the  pipeline of kmer modification detection from the output of the 
 # python code reading and normalizing the cmph5 file to the output of the llr values per position 
@@ -10,7 +10,9 @@ modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga
 # kmer_length is a vector of length of kmer we want to consider for this analyses
 # fasta is the path and file name to the fasta file of the bacterial DNA sequence
 # pwd is the path in which the output of every step of this function will be saved
-# Intermediary output will be saved every step of the way: 
+# save_intermediary_files is a boolean that specify whether you want to save intermediary output files or not. 
+# By default it is set to FALSE
+# Intermediary outputs that would be saved along the way: 
 # - the csv files transformed for R usage in "BacteriaName"_native_reads.RData and "BacteriaName"_wga_reads.RData
 # - the kmer positions per kmer size in KmerList_position_"KmerLength".RData
 # - the unstacked IPD data per position for both native and WGA in unstacked_ipds.RData
