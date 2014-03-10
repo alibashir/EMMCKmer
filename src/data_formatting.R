@@ -1,4 +1,4 @@
-data_formatting = function(pwd_csv_files,bacteria_name,nat_wga,pwd){
+data_formatting = function(pwd_csv_files,bacteria_name,nat_wga,pwd,save_intermediary_files){
 #############
 # This function takes as input the ipd per position csv file after Python code
 # The output is 2 RData files containing each a matrix of the positions and corresponding IPDs 
@@ -7,6 +7,7 @@ data_formatting = function(pwd_csv_files,bacteria_name,nat_wga,pwd){
 # nat_wga is the description of native versus wga data (needs to be equal to "nat" or "wga")
 # Positive strand is negative values of positions, negative strand is positive values of positions
 # pwd is the location in which to save the output files
+# save_intermediary_files is a boolean that specifies whether to save the intermediary files or not
 #############
 	setwd(pwd)
 	t = read.table(pwd_csv_files)
