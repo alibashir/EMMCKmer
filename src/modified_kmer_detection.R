@@ -73,7 +73,7 @@ modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga
   # run only if medianing have not yet been computed for that specific bacteria
   #######
 
-  median_per_pos(pwd)
+  median_per_pos(pwd,save_intermediary_files)
 
   ########
   # run llr test on data
