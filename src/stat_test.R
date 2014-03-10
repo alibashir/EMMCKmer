@@ -1,10 +1,11 @@
-stat_test = function(length_kmer_vector,pwd,pwd_bacteria_reads,pwd_kmer_files){
+stat_test = function(length_kmer_vector,pwd,pwd_bacteria_reads,pwd_kmer_files,save_intermediary_files){
 ##################
 # This function calculates the llr on the distribution of IPDs per kmer
 # length_kmer_vector is the length of the all the kmers to consider
 # pwd is the location in which all the output files will be saved
 # pwd_bacteria_reads is the location and file name of the bacteria reads after formatting from the csv file
 # pwd_kmer_files is the location of the files of the kmer position per bacteria
+# save_intermediary_files is a boolean that specifies whether to save the intermediary files or not
 ##################
 
   library(permute)
@@ -49,8 +50,10 @@ stat_test = function(length_kmer_vector,pwd,pwd_bacteria_reads,pwd_kmer_files){
     md_ipd = md_ipd[which(abs(md_ipd) != Inf)]
   }
 
-  load(paste("median_of_reads_per_position.RData",sep = ""))
-
+  if (save_intermediary_files){
+    load(paste("median_of_reads_per_position.RData",sep = ""))
+  }
+  
   for (count_kmer in 1:length(length_kmer_vector)){
     length_kmer = length_kmer_vector[count_kmer]
     load(paste(pwd_kmer_files,"/KmerList_position_",as.character(length_kmer),".RData",sep = ""))
@@ -172,8 +175,10 @@ stat_test = function(length_kmer_vector,pwd,pwd_bacteria_reads,pwd_kmer_files){
     ind = is.finite(sort_max_median_llr)
     sort_max_median_llr = sort(abs(sort_max_median_llr[ind]),decreasing = FALSE)
 
-    write.table(sort_max_median_llr, file = paste0("llr_median_",length_kmer,".txt"))
-
-    save(median_mat,file = paste0("median_of_medians_",length_kmer,".RData"))
+    if (save_intermediary_files){
+      write.table(sort_max_median_llr, file = paste0("llr_median_",length_kmer,".txt"))
+      
+      save(median_mat,file = paste0("median_of_medians_",length_kmer,".RData"))
+    }
   }
 }
