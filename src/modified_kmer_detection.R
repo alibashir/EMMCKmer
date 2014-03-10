@@ -81,7 +81,7 @@ modified_kmer_detection = function(pwd_bacteria_reads_nat,pwd_bacteria_reads_wga
   pwd_unstacking = paste(pwd,"/unstacked_ipds.RData",sep = "")
   pwd_kmer_files = pwd
 
-  stat_test(kmer_length,pwd,pwd_unstacking,pwd_kmer_files)
+  stat_test(kmer_length,pwd,pwd_unstacking,pwd_kmer_files,save_intermediary_files)
 
   #######
   # run to create table input for Python code
