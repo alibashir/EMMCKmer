@@ -25,4 +25,9 @@ You should not need to install anything if you have satisifed the following requ
 </ul>
  
 ## Citation
-To cite the code, please refer to ...
+To cite the code, please refer to:
+
+Detecting epigenetic motifs in low coverage and metagenomics settings
+ND Beckmann, S Karri, G Fang, A Bashir
+BMC Bioinformatics 15 (Suppl 9), S16
+
